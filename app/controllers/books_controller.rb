@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @books = Book.all
+    @books = @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
 
   def create
@@ -46,6 +46,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
+  end
+
+  def weekly_rank
+  @ranks = book.joins(:favorites).where(favorites: { created_at:　0.days.ago.prev_week..0.days.ago.prev_week(:sunday)})
   end
 
   private
