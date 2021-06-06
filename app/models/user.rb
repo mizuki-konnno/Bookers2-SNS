@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -9,7 +10,7 @@ class User < ApplicationRecord
   has_many :book_comments,dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :book
-  
+
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
@@ -18,7 +19,7 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
-  validates :introduction, length: {maximum: 50}, uniqueness: false  
+  validates :introduction, length: {maximum: 50}, uniqueness: false
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

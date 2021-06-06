@@ -1,0 +1,32 @@
+
+<table class='table table-bordered'>
+  <tr><th>今日の投稿数</th><th>昨日の投稿数</th><th>前日比</th></tr>
+  <tr>
+    <td><p><%= @book_count.where(created_at: 0.day.ago.all_day).count %></p></td>
+    <td><p><%= @book_count.where(created_at: 1.day.ago.all_day).count %></p></td>
+    <td>
+      <% if  @book_count.where(created_at: 1.day.ago.all_day).count == 0 %>
+        <p>0%</p>
+       <% else %>
+        <p><%= (@book_count.where(created_at: 0.day.ago.all_day).count.to_i / @book_count.where(created_at: 1.day.ago.all_day).count.to_i)*100 %>%
+        </p>
+      <% end %>
+    </td>
+  </tr>
+ </table>
+
+<table class='table table-bordered'>
+  <tr><th>今週の投稿数</th><th>先週の投稿数</th><th>前週比</th></tr>
+  <tr>
+    <td><p><%= @book_count.where(created_at: 0.week.ago.all_week).count %></p></td>
+    <td><p><%= @book_count.where(created_at: 1.week.ago.all_week).count %></p></td>
+    <td>
+      <% if  @book_count.where(created_at: 1.day.ago.all_day).count == 0 %>
+        <p>0%</p>
+       <% else %>
+        <p><%= (@book_count.where(created_at: 0.week.ago.all_week).count.to_i / @book_count.where(created_at: 1.week.ago.all_week).count.to_i)*100 %>%
+        </p>
+      <% end %>
+    </td>
+  </tr>
+ </table>
