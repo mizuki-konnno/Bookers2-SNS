@@ -1,24 +1,4 @@
-# README
+# DMM WEB CAMP コンテンツ[応用課題]
+DMM WEB CAMPの学習コンテンツ　応用課題　7章〜９章のBの研修課題の回答です。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# bookers2の記録系です
