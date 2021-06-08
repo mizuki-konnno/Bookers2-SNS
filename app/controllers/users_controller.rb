@@ -6,6 +6,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
+    @book_count = Book.all
+    @today_book =  @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
+    @twodaysago_book = @books.created_twodaysago
+    @threedaysago_book = @books.created_threedaysago
+    @fourdaysago_book = @books.created_fourdaysago
+    @fivedaysago_book = @books.created_fivedaysago
+    @sixdaysago_book = @books.created_sixdaysago
+    
+    @search = Book.looks(params[:word])
+    
   end
 
   def index
@@ -25,8 +38,6 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-
-
 
   private
   def user_params

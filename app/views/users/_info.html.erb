@@ -32,3 +32,6 @@
    <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
    <% end %>
  </div>
+ <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+  <%= link_to "Chatを始める", chat_path(user.id) %>
+ <% end %>
