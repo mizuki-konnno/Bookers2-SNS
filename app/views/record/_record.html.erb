@@ -131,4 +131,16 @@ $(document).on('turbolinks:load', function() {
 });
 </script>
 
+ <div class="text-right">
+    <% if user_signed_in? %>.
+      <%= form_with url: user_path, method: :get, local: :true do |f| %>
+      <%= f.date_field :word %>
+      <%= f.submit "検索" %>
+    <% end %>
+    <% end %>
+    </div>
+
+    <% @search.each do |book| %>
+     <%= book.title %>
+    <% end %>
   </div>
