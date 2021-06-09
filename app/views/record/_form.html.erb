@@ -1,0 +1,7 @@
+
+    <% if user_signed_in? %>.
+      <%= form_with url: user_path, method: :get, remote: :true do |f| %>
+      <%= f.date_field :word %>
+      <%= f.submit "検索" %>
+      <% end %>
+    <% end %>

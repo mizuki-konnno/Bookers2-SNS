@@ -14,5 +14,15 @@
       <h3>投稿数の前日比・前週比</h3>
       <%= render 'record/record',books: @books %>
     </div>
+
+    <div class='col-md-8 offset-md-1'>
+      <% if user_signed_in? %>
+        <%= render partial: 'record/form' %>
+      <% end %>
+     <h3>検索結果</h3>
+       <div id = "count">
+       <%= render partial: 'record/index', lacals: { search: @search } %>
+      </div>
+    </div>
   </div>
 </div>
