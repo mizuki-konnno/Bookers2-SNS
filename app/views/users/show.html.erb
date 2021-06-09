@@ -19,9 +19,10 @@
       <% if user_signed_in? %>
         <%= render partial: 'record/form' %>
       <% end %>
-     <h3>検索結果</h3>
        <div id = "count">
-       <%= render partial: 'record/index', lacals: { search: @search } %>
+      　<% if @search_book.present? %>
+       　<%= render partial: 'record/index', lacals: { search: @search } %>
+        <% end %>
       </div>
     </div>
   </div>
