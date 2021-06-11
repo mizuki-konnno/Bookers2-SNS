@@ -1,24 +1,14 @@
-# README
+# DMM WEB CAMP コンテンツ[応用課題]
+DMM WEB CAMPの学習コンテンツ　応用課題　7章cの研修課題の回答です。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 課題 7c
+グループを作成する
+ユーザーの一覧画面に group を作成するボタンを作る
+グループを作成する機能の実装
+作成した人がグループオーナーになる
+グループ一覧画面を作成
+自分がグループオーナーの場合は、Edit リンクを出す
+ユーザーの一覧画面に group 一覧のボタンを作る
+グループ編集機能を作成
+グループオーナーだけ編集可能にする
+グループ詳細画面の作成(メンバーはまだ実装しなくて良い)
