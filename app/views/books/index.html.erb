@@ -15,6 +15,7 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
+      <%= link_to "新しい順", books_path(sort: 'created_at DESC') %> | <%= link_to "評価の高い順", books_path(sort: 'rate DESC') %>
       <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -33,6 +34,7 @@
         </td>
         <td><%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
+        <td><%= link_to book.category, search_path(keyword: book.category) %></td>
 
         <td>
           <% if book.favorited_by?(current_user) %>
@@ -51,6 +53,20 @@
         </td>
 
         <td> <p><%= link_to "#{book.book_comments.count} コメント", book_path(book.id) %></p></td>
+        <td>
+            <div id="rate_<%= book.id %>"></div>
+            <script>
+              $('#rate_<%= book.id %>').raty({
+                size: 20,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= book.rate %>,
+              });
+            </script>
+          </td>
       </tr>
     <% end %>
   </tbody>
